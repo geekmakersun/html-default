@@ -209,6 +209,19 @@ if ($action == 'download') {
         $filename = 'image.' . str_replace('image/', '', $contentType);
     }
     
+    $customFilename = $_GET['filename'] ?? '';
+    if (!empty($customFilename)) {
+        $filename = $customFilename;
+        if (strpos($filename, '.') === false) {
+            $extension = pathinfo(basename(parse_url($url, PHP_URL_PATH)), PATHINFO_EXTENSION);
+            if (!empty($extension)) {
+                $filename .= '.' . $extension;
+            } else {
+                $filename .= '.' . str_replace('image/', '', $contentType);
+            }
+        }
+    }
+    
     header('Content-Type: ' . $contentType);
     header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Content-Length: ' . strlen($imageData));
@@ -290,7 +303,14 @@ echo '<!DOCTYPE html>
         <div class="preview">
             <img src="data:' . $contentType . ';base64,' . base64_encode($imageData) . '" alt="预览图片">
         </div>
-        <a href="?url=' . urlencode($url) . '&action=download" class="btn">下载图片</a>
+        <form method="GET" style="margin-top: 20px;">
+            <input type="hidden" name="url" value="' . htmlspecialchars($url) . '">
+            <input type="hidden" name="action" value="download">
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" name="filename" placeholder="文件名（留空使用默认）" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                <button type="submit" class="btn">下载图片</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>';
