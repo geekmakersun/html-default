@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>网关超时</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #9b2c2c 0%, #742a2a 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+        padding: 50px 40px;
+        text-align: center;
+        animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 30px;
+        background: linear-gradient(135deg, #9b2c2c 0%, #742a2a 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      .icon svg {
+        width: 40px;
+        height: 40px;
+        fill: white;
+      }
+      h1 {
+        color: #2d3748;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+      .message {
+        color: #4a5568;
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+      .alert-type {
+        background: linear-gradient(135deg, #9b2c2c 0%, #742a2a 100%);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(116, 42, 42, 0.4);
+      }
+      .details {
+        background: #fff5f5;
+        border-left: 4px solid #9b2c2c;
+        padding: 20px;
+        margin-top: 25px;
+        text-align: left;
+        border-radius: 0 10px 10px 0;
+      }
+      .details h3 {
+        color: #2d3748;
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      .details p {
+        color: #718096;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #9b2c2c 0%, #742a2a 100%);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(116, 42, 42, 0.4);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(116, 42, 42, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+        </svg>
+      </div>
+      <h1>网关超时</h1>
+      <div class="alert-type">504 Gateway Timeout</div>
+      <div class="message">抱歉，服务器作为网关或代理时，未能及时从上游服务器获得响应。</div>
+      <div class="details">
+        <h3>可能的原因</h3>
+        <p>• 上游服务器响应超时</p>
+        <p>• 网络连接不稳定</p>
+        <p>• 服务器负载过高</p>
+      </div>
+      <a href="/" class="btn">返回首页</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全防护系统</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {
+            font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;
+            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+        }
+        .container {
+            background:rgba(255,255,255,0.95);
+            border-radius:20px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.3);
+            max-width:600px;
+            width:100%;
+            padding:50px 40px;
+            text-align:center;
+            animation:fadeIn 0.6s ease-out;
+        }
+        @keyframes fadeIn {
+            from {opacity:0;transform:translateY(-20px);}
+            to {opacity:1;transform:translateY(0);}
+        }
+        .icon {
+            width:80px;
+            height:80px;
+            margin:0 auto 30px;
+            background:linear-gradient(135deg,#ff6b6b 0%,#ee5a24 100%);
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            animation:pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,100% {transform:scale(1);}
+            50% {transform:scale(1.05);}
+        }
+        .icon svg {
+            width:40px;
+            height:40px;
+            fill:white;
+        }
+        h1 {
+            color:#2d3748;
+            font-size:32px;
+            font-weight:700;
+            margin-bottom:20px;
+            letter-spacing:1px;
+        }
+        .message {
+            color:#4a5568;
+            font-size:18px;
+            line-height:1.8;
+            margin-bottom:30px;
+        }
+        .alert-type {
+            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            color:white;
+            padding:15px 25px;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:600;
+            margin-bottom:25px;
+            display:inline-block;
+            box-shadow:0 4px 15px rgba(102,126,234,0.4);
+        }
+        .details {
+            background:#f7fafc;
+            border-left:4px solid #667eea;
+            padding:20px;
+            margin-top:25px;
+            text-align:left;
+            border-radius:0 10px 10px 0;
+        }
+        .details h3 {
+            color:#2d3748;
+            font-size:16px;
+            margin-bottom:10px;
+            font-weight:600;
+        }
+        .details p {
+            color:#718096;
+            font-size:14px;
+            line-height:1.6;
+            margin-bottom:8px;
+        }
+        .footer {
+            margin-top:35px;
+            color:#a0aec0;
+            font-size:13px;
+        }
+        .footer span {
+            color:#667eea;
+            font-weight:600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+        </div>
+        <h1>安全防护系统</h1>
+        <div class="alert-type" id="alertType">检测到安全威胁</div>
+        <div class="message">
+            您的请求中包含路径遍历攻击特征<br>触发了安全防护机制，已被系统自动拦截。
+        </div>
+        <div class="details">
+            <h3>防护详情</h3>
+            <p>• 系统已自动识别并阻止了潜在的安全威胁</p>
+            <p>• 您的IP地址和访问信息已被记录</p>
+            <p>• 如有疑问，请联系系统管理员</p>
+        </div>
+        <div class="footer">
+            <span>智能安全防护系统</span> | 实时监控 · 智能拦截 · 全面防护
+        </div>
+    </div>
+    </body>
+</html>
